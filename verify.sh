@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/bash
 set -euo pipefail
 
 git diff $(git merge-base master upstream/master)..master \

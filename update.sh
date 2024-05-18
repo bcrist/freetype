@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/bash
 set -euo pipefail
 
 git remote add upstream https://gitlab.freedesktop.org/freetype/freetype.git || true
