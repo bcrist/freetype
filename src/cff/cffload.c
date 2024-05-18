@@ -4,7 +4,7 @@
  *
  *   OpenType and CFF data/program tables loader (body).
  *
- * Copyright (C) 1996-2023 by
+ * Copyright (C) 1996-2024 by
  * David Turner, Robert Wilhelm, and Werner Lemberg.
  *
  * This file is part of the FreeType project, and may only be used,
@@ -1361,7 +1361,7 @@
     for ( i = 0; i < numBlends; i++ )
     {
       const FT_Int32*  weight = &blend->BV[1];
-      FT_UInt32        sum;
+      FT_Fixed         sum;
 
 
       /* convert inputs to 16.16 fixed point */
@@ -1379,10 +1379,10 @@
       /* opcode in both CFF and CFF2 DICTs.  See `cff_parse_num' for    */
       /* decode of this, which rounds to an integer.                    */
       *subFont->blend_top++ = 255;
-      *subFont->blend_top++ = (FT_Byte)( sum >> 24 );
-      *subFont->blend_top++ = (FT_Byte)( sum >> 16 );
-      *subFont->blend_top++ = (FT_Byte)( sum >>  8 );
-      *subFont->blend_top++ = (FT_Byte)sum;
+      *subFont->blend_top++ = (FT_Byte)( (FT_UInt32)sum >> 24 );
+      *subFont->blend_top++ = (FT_Byte)( (FT_UInt32)sum >> 16 );
+      *subFont->blend_top++ = (FT_Byte)( (FT_UInt32)sum >>  8 );
+      *subFont->blend_top++ = (FT_Byte)( (FT_UInt32)sum );
     }
 
     /* leave only numBlends results on parser stack */

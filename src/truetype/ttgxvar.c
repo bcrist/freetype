@@ -4,7 +4,7 @@
  *
  *   TrueType GX Font Variation loader
  *
- * Copyright (C) 2004-2023 by
+ * Copyright (C) 2004-2024 by
  * David Turner, Robert Wilhelm, Werner Lemberg, and George Williams.
  *
  * This file is part of the FreeType project, and may only be used,
@@ -621,10 +621,10 @@
     {
       GX_ItemVarData  varData = &itemStore->varData[i];
 
-      FT_UInt  item_count;
-      FT_UInt  word_delta_count;
-      FT_UInt  region_idx_count;
-      FT_UInt  per_region_size;
+      FT_UInt    item_count;
+      FT_UShort  word_delta_count;
+      FT_UInt    region_idx_count;
+      FT_UInt    per_region_size;
 
 
       if ( FT_STREAM_SEEK( offset + dataOffsetArray[i] ) )
@@ -2141,7 +2141,8 @@
                                          outerIndex,
                                          innerIndex );
 
-	  v += delta << 2;
+          /* Convert to 16.16 format before adding. */
+	  v += MUL_INT( delta, 4 );
 
 	  /* Clamp value range. */
 	  v = v >=  0x10000L ?  0x10000 : v;
