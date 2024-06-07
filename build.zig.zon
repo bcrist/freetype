@@ -13,8 +13,8 @@
     },
     .dependencies = .{
         .brotli = .{
-            .url = "git+https://github.com/bcrist/brotli#8fe78f78cec9e382645915550140cc1c82a7d220",
-            .hash = "122045107901b92d2df6c3d32f8b299bf3811ea8268343c76e2e91e76f43ced43bac",
+            .url = "git+https://github.com/bcrist/brotli#5c56dc5e887bb5ca7b455b08cefe79100b7cedbb",
+            .hash = "1220eb71de1a805e8d3ccdccfb7916cbe3dc59559af60de1543b54aed0468ca77436",
             .lazy = true,
         },
     },

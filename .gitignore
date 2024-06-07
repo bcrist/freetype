@@ -7,4 +7,6 @@ subprojects/*
 /tests/data/*
 
 # Zig
-/zig-*
+.zig-cache/
+zig-cache/
+zig-out/
